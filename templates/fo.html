@@ -5,8 +5,13 @@
     
     <body>
 	<center>
+	Welcome Mr {{user_name}}<br/>
+	Total Balance is : Rs {{tot_bal1}}.00<br/>
+	Net Withdrawl Balance is : Rs {{nw_bal1}}.00<br/>
+	FO Balance is : Rs {{fo_bal1}}.00<br/>
 	  <h1>FOs</h1>
 	  <table border="1">
+	  	<form id="form2" name="form2" method="post" action="/cooperative_Bank/fm/Thank2" onsubmit=" ";>
 	      {% if fo_list %}
 		  <tr>
 		      <th>ID </th>
@@ -29,6 +34,9 @@
 		      <td>
 			{{ fo.fo_Qty }}
 		      </td>
+		        <td> <input type="text"  name="abcd{{ forloop.counter }}" id="choice{{ forloop.counter }}"/>
+		      	    </td>
+		      	     <td><input type="hidden" name="abc{{ forloop.counter }}" value="{{ fo.fo_ID }}"/></td>
 		  </tr>
 		    {% endfor %}
 		    </ul>
@@ -36,6 +44,8 @@
 		  <p>No Mutual Funds are available.</p>
 		{% endif %}
 	  </table>
+	  <input type="submit" value="Submit" />
+	  </form>
 	</center>
     </body>
 </html>

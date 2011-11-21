@@ -21,37 +21,50 @@
 		numcheck = /\d/
 		return numcheck.test(keychar)
 	    }
+		
 	    function validate_form(){
-	    	var totalBal = parseInt("{{tot_bal1}}")
-	    	var mfBal =parseInt("{{mf_bal1}}")
-	    	var ipoBal =parseInt("{{po_bal1}}")
-	    	var foBal = parseInt("{{po_bal1}}")
-	    	var netBal=parseInt("{{nw_bal1}}")
-	    		var mfAdd=document.forms["form1"]["signMF"].value;
-				var ipoAdd=document.forms["form1"]["ipo"].value;
-				var foAdd=document.forms["form1"]["fo"].value;
-				//if (mfAdd== "plus"){
-				//	document.write(mfAdd);
-					//var changeMF=document.forms["form1"]["mfBalChange"].value;       
-				else{
-					var changeMF=-document.forms["form1"]["mfBalChange"].value; 
-				}
-				if (ipoAdd== "Add"){
-					var changeIPO=document.forms["form1"]["ipoBalChange"].value;       
-				}else{
-					var changeIPO=-document.forms["form1"]["ipoBalChange"].value; 
-				}
-				if (foAdd== "Add"){
-					var changeFO=document.forms["form1"]["foBalChange"].value;       
-				}else{
-					var changeFO=-document.forms["form1"]["foBalChange"].value; 
-				}
-				if(totalBal < mfBal + ipoBal +foBal + changeMF + changeIPO + changeFO){
-						return false;
-				}else {
-						return true;
-				}
-					
+	    	var totalBal = +"{{tot_bal1}}"
+			var netwBal=+"{{nw_bal1}}"
+	    	var mfBal =+"{{mf_bal1}}"
+	    	var poBal =+"{{po_bal1}}"
+	    	var foBal = +"{{po_bal1}}"
+	    	var signMF=document.form1.signMF[0].checked
+			var signPO=document.form1.signPO[0].checked
+			var signFO=document.form1.signFO[0].checked
+			var temp_MF,temp_PO,temp_FO
+			if(signMF){
+				temp_MF=+document.form1.temp_MF.value
+			}else{
+				temp_MF=-document.form1.temp_MF.value
+			}
+			if(signPO){
+				temp_PO=+document.form1.temp_PO.value
+			}else{
+				temp_PO=-document.form1.temp_PO.value
+			}
+			if(signFO){
+				temp_FO=+document.form1.temp_FO.value
+			}else{
+				temp_FO=-document.form1.temp_FO.value
+			}
+			if(mfBal + temp_MF < 0){
+				alert("Incorrect change in MF")
+				return false;
+			}
+			if(poBal + temp_PO < 0){
+				alert("Incorrect change in PO")
+				return false;
+			}
+			if(foBal + temp_FO < 0){
+				alert("Incorrect change in FO")
+				return false;
+			}
+			if(totalBal < mfBal + temp_MF + poBal + temp_PO + foBal + temp_FO){
+				alert("Insufficient net total  balance")
+				return false;
+			}
+				return true;
+			
 	    }
 	</script>
 	
@@ -63,12 +76,12 @@
 	      <tr>
 		  <th>Block For</th>    <th>Current Allocation</th>     <th>Allocate</th>     
 	      </tr>
-	      <form id="form1" name="form1" method="post" action="" onsubmit="validate_form()";>
+	      <form id="form1" name="form1" method="post" action="/cooperative_Bank/fm/user" onsubmit="validate_form()";>
 	      <tr>
 		  <td><a href="MF"> Mutual Funds</a></td> 
 		  <td>{{mf_bal1}}</td>
 		  <td>
-			  <input type="text" id="temp_MF" name="temp_MF" onkeypress="return onlynumbers(event)"/> <br/>
+			  <input type="text"  name="temp_MF" onkeypress="return onlynumbers(event)"/> <br/>
 			  <input type="radio" name="signMF" value="plus" checked="true" /> Add
 			  <input type="radio" name="signMF" value="minus" /> Reduce
 		  </td> 
@@ -77,18 +90,16 @@
 		  <td><a href="IPO"> IPO</a></td> 
 		  <td>{{po_bal1}}</td>
 		  <td>
-			  <centre>
-			    <input type="text" id="temp_PO" name="temp_PO" onkeypress="return onlynumbers(event)"/> <br/>
+			    <input type="text"  name="temp_PO" onkeypress="return onlynumbers(event)"/> <br/>
 			    <input type="radio" name="signPO" value="plus" checked="true"/> Add
 			    <input type="radio" name="signPO" value="minus" /> Reduce
-		      </centre>
 		  </td>
 	      </tr>
 	      <tr>
 		  <td><a href="FO"> FO</a></td> 
 		  <td>{{fo_bal1}}</td> 
 		  <td>
-			  <input type="text" id="temp_FO" name="temp_FO" onkeypress="return onlynumbers(event)"/><br/>
+			  <input type="text"  name="temp_FO" onkeypress="return onlynumbers(event)"/><br/>
 			  <input type="radio" name="signFO" value="plus" checked="true"/> Add
 			  <input type="radio" name="signFO" value="minus" /> Reduce
 		      

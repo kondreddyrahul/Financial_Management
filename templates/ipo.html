@@ -5,8 +5,14 @@
     
     <body>
 	<center>
+	Welcome Mr {{user_name}}<br/>
+	Total Balance is : Rs {{tot_bal1}}.00<br/>
+	Net Withdrawl Balance is : Rs {{nw_bal1}}.00<br/>
+	IPO Balance is : Rs {{po_bal1}}.00<br/>
+
 	  <h1>IPOs</h1>
 	  <table border="1">
+	  	 <form id="form2" name="form2" method="post" action="/cooperative_Bank/fm/Thank1" onsubmit=" ";>
 	      {% if ipo_list %}
 		  <tr>
 		      <th>ID </th>
@@ -29,13 +35,20 @@
 		      <td>
 			{{ ipo.ipo_Qty }}
 		      </td>
+		      <td> <input type="text"  name="abcd{{ forloop.counter }}" id="choice{{ forloop.counter }}"/>
+		      	    </td>
+		      	     <td><input type="hidden" name="abc{{ forloop.counter }}" value="{{ ipo.ipo_ID }}"/></td>
 		  </tr>
 		    {% endfor %}
 		    </ul>
 		{% else %}
 		  <p>No No IPOs are available.</p>
 		{% endif %}
+	 
 	  </table>
+	 <input type="submit" value="Submit" />
+	  </form>
 	</center>
     </body>
 </html>
+
