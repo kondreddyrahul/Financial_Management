@@ -1,0 +1,53 @@
+<html>
+    <head>
+	<title>Available IPOs</title>
+    </head>
+    
+    <body>
+	<center>
+	Welcome Mr {{user_name}}<br/>
+	Total Balance is : Rs {{tot_bal1}}.00<br/>
+	Net Withdrawl Balance is : Rs {{nw_bal1}}.00<br/>
+	<br/>
+
+	  <h1>Transaction History</h1>
+	  <table border="1">
+	  	 <form id="form2" name="form2" method="post" action="/cooperative_Bank/fm/user" onsubmit=" ";>
+	      {% if p %}
+		  <tr>
+		      <th>ID </th>
+		      <th>IPO Name</th>
+		      <th>Total</th>     
+		      <th>BUY/SOLD</th>     
+		  </tr>
+		  <ul>
+		  {% for p1 in p %}
+		  <tr>
+		      <td>
+			<a href="/fm/ipos/{{ ipo.ipo_ID }}/">{{ p1.transaction_id }}</a>
+		      </td>
+		      <td>
+			<a href="/fm/ipos/{{ ipo.ipo_ID }}/">{{ p1.transaction_trans }}</a>
+		      </td>
+		      <td>
+			{{ p1.transaction_total }}
+		      </td>
+		      <td>
+			{{ p1.transaction_Quantity }}
+		      </td>
+		     
+		  </tr>
+		    {% endfor %}
+		    </ul>
+		{% else %}
+		  <p>No No IPOs are available.</p>
+		{% endif %}
+	 
+	  </table>
+	  <input type="hidden" name="user_id" value="{{ic}}"/>
+	 
+	 <input type="submit" value="MAIN PAGE" />
+	  </form>
+	</center>
+    </body>
+</html>

@@ -1,5 +1,5 @@
 from django.db import models
-
+import json
 class Customer(models.Model):
   customer_Name = models.CharField(max_length=200)
   customer_ID = models.CharField(max_length=10, primary_key = True)
@@ -38,6 +38,15 @@ class FO(models.Model):
   def __unicode__(self):
         return self.fo_Name
 
+class Transaction(models.Model):
+  transaction_user = models.ForeignKey(Customer)
+  transaction_id = models.CharField(max_length=10, primary_key = True)
+  transaction_trans = models.CharField(max_length=10) 
+  transaction_total = models.DecimalField(max_digits=10, decimal_places=2)
+  transaction_Quantity = models.IntegerField()
+  def __unicode__(self):
+        return self.transaction_id
+    
 class Admin(models.Model):
   admin_Name = models.CharField(max_length=200)
   admin_ID = models.CharField(max_length=10, primary_key = True)

@@ -1,6 +1,11 @@
 <html>
     <head>
-	<title>Account Summary</title>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Login Page</title>
+		<link href="/static/style.css" rel="stylesheet" type="text/css" media="screen" />
+    	<title>Account Summary</title>
     </head>
     
     <body>
@@ -73,48 +78,66 @@
 			
 	    }
 	</script>
-	
-	<center>
-	  Welcome Mr {{user_name}}<br/>
-	  Net Withdrawl Balance {{nw_bal1}}<br/>
-	  Total Balance is : Rs {{tot_bal1}}.00<br/>
-	  <table border="1">
-	      <tr>
-		  <th>Block For</th>    <th>Current Allocation</th>     <th>Allocate</th>     
-	      </tr>
-	      <form id="form1" name="form1" method="post" action="#" onsubmit="return validate_form()";>
-	      <tr>
-		  <td><a href="MF"> Mutual Funds</a></td> 
-		  <td>{{mf_bal1}}</td>
-		  <td>
-			  <input type="hidden" name="user_id" value={{user_id1}}>
-			  <input type="text"  name="temp_MF" onkeypress="return onlynumbers(event)"/> <br/>
-			  <input type="radio" name="signMF" value="plus" checked="true" /> Add
-			  <input type="radio" name="signMF" value="minus" /> Reduce
-		  </td> 
-	      </tr>
-	      <tr>
-		  <td><a href="IPO"> IPO</a></td> 
-		  <td>{{po_bal1}}</td>
-		  <td>
-			    <input type="text"  name="temp_PO" onkeypress="return onlynumbers(event)"/> <br/>
-			    <input type="radio" name="signPO" value="plus" checked="true"/> Add
-			    <input type="radio" name="signPO" value="minus" /> Reduce
-		  </td>
-	      </tr>
-	      <tr>
-		  <td><a href="FO"> FO</a></td> 
-		  <td>{{fo_bal1}}</td> 
-		  <td>
-			  <input type="text"  name="temp_FO" onkeypress="return onlynumbers(event)"/><br/>
-			  <input type="radio" name="signFO" value="plus" checked="true"/> Add
-			  <input type="radio" name="signFO" value="minus" /> Reduce
-		      
-		  </td>
-	      </tr>
-	  </table>
-	  <input type="submit" value="Submit" />
-	  </form>
-	</center>
+	<div id="wrapper">
+		<div id="header-wrapper">
+			<div id="header">
+				<div id="logo">
+					<h1>IIT Ropar Bank</h1>
+				</div>
+			</div>
+		</div>
+		<!-- end #header -->
+		<div id="page">
+				<div id="content">
+						<div class="post">
+							<h2 class="title">Welcome Mr {{user_name}}<br/></h2>
+		  						<p>Withdrawl Balance {{nw_bal1}}<br/>
+		  						Total Balance is : Rs {{tot_bal1}}.00<br/>
+							</p> 
+						    <div class="entry">
+								<table border="1">
+							      <tr>
+								  <th>Block For</th>    <th>Current Allocation</th>     <th>Allocate</th>     
+							      </tr>
+							      <form id="form1" name="form1" method="post" action="#" onsubmit="return validate_form()";>
+							      <tr>
+								  <td><a href="MF"> Mutual Funds</a></td> 
+								  <td>{{mf_bal1}}</td>
+								  <td>
+									  <input type="hidden" name="user_id" value={{user_id1}}>
+									  <input type="text"  name="temp_MF" onkeypress="return onlynumbers(event)"/> <br/>
+									  <input type="radio" name="signMF" value="plus" checked="true" /> Add
+									  <input type="radio" name="signMF" value="minus" /> Reduce
+								  </td> 
+							      </tr>
+							      <tr>
+								  <td><a href="IPO"> IPO</a></td> 
+								  <td>{{po_bal1}}</td>
+								  <td>
+									    <input type="text"  name="temp_PO" onkeypress="return onlynumbers(event)"/> <br/>
+									    <input type="radio" name="signPO" value="plus" checked="true"/> Add
+									    <input type="radio" name="signPO" value="minus" /> Reduce
+								  </td>
+							      </tr>
+							      <tr>
+								  <td><a href="FO"> FO</a></td> 
+								  <td>{{fo_bal1}}</td> 
+								  <td>
+									  <input type="text"  name="temp_FO" onkeypress="return onlynumbers(event)"/><br/>
+									  <input type="radio" name="signFO" value="plus" checked="true"/> Add
+									  <input type="radio" name="signFO" value="minus" /> Reduce
+								      
+								  </td>
+							      </tr>
+							  </table>
+							  <input type="submit" value="Submit" />
+							  </form>
+						</div>
+					</div>
+						
+					</div>
+				</div>
+		</div>
     </body>
 </html>
+

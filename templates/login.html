@@ -1,8 +1,21 @@
 <html>
-	<head> <title> Login Page </title> </head> 
+	<head> 
+		<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Login Page</title>
+		<link href="/static/style.css" rel="stylesheet" type="text/css" media="screen" />
+     </head>    
 	<body>
+		<div id="wrapper">
+		<div id="header-wrapper">
+			<div id="header">
+				<div id="logo">
+					<h1> <i>IIT Ropar Bank</i> </h1>
+				</div>
+			</div>
+		</div>
+		
 	  <center>
-		<h1>Welcome to IIT ROPAR BANK</h1>
 		<form name="input" action="/cooperative_Bank/fm/user" method="post" >{% csrf_token %} UserId:
 			<input type="text" name="user_id" {{user_id}}/></br>
 			<input type="submit" value="Login" />
