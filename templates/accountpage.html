@@ -14,20 +14,20 @@
 		    keynum = e.keyCode
 		}
 		// Netscape/Firefox/Opera
-		else if(e.which){
+		/*else if(e.which){
 		    keynum = e.which
-		}
+		}*/
 		keychar = String.fromCharCode(keynum)
 		numcheck = /\d/
 		return numcheck.test(keychar)
 	    }
 		
 	    function validate_form(){
-	    	var totalBal = +"{{tot_bal1}}"
+			var totalBal = +"{{tot_bal1}}"
 			var netwBal=+"{{nw_bal1}}"
 	    	var mfBal =+"{{mf_bal1}}"
 	    	var poBal =+"{{po_bal1}}"
-	    	var foBal = +"{{po_bal1}}"
+	    	var foBal = +"{{fo_bal1}}"
 	    	var signMF=document.form1.signMF[0].checked
 			var signPO=document.form1.signPO[0].checked
 			var signFO=document.form1.signFO[0].checked
@@ -59,11 +59,17 @@
 				alert("Incorrect change in FO")
 				return false;
 			}
+			//document.write(totalBal)
+			//document.write(hell)
+			//document.write( foBal)// + temp_FO)
 			if(totalBal < mfBal + temp_MF + poBal + temp_PO + foBal + temp_FO){
 				alert("Insufficient net total  balance")
 				return false;
 			}
-				return true;
+			document.form1.temp_MF.value=temp_MF
+			document.form1.temp_PO.value=temp_PO
+			document.form1.temp_FO.value=temp_FO
+			return true;
 			
 	    }
 	</script>
@@ -76,11 +82,12 @@
 	      <tr>
 		  <th>Block For</th>    <th>Current Allocation</th>     <th>Allocate</th>     
 	      </tr>
-	      <form id="form1" name="form1" method="post" action="/cooperative_Bank/fm/user" onsubmit="validate_form()";>
+	      <form id="form1" name="form1" method="post" action="#" onsubmit="return validate_form()";>
 	      <tr>
 		  <td><a href="MF"> Mutual Funds</a></td> 
 		  <td>{{mf_bal1}}</td>
 		  <td>
+			  <input type="hidden" name="user_id" value={{user_id1}}>
 			  <input type="text"  name="temp_MF" onkeypress="return onlynumbers(event)"/> <br/>
 			  <input type="radio" name="signMF" value="plus" checked="true" /> Add
 			  <input type="radio" name="signMF" value="minus" /> Reduce
