@@ -99,11 +99,9 @@
 	  Welcome Mr {{user_name}}<br/>
 	  Net Withdrawl Balance {{nw_bal1}}<br/>
 	  Total Balance is : Rs {{tot_bal1}}.00<br/>
-	  Total Balance is : Rs {{mf_bal1}}.00<br/>
+	  Total  MF Balance is : Rs {{mf_bal1}}.00<br/>
 	  <table border="1">
-	      <tr>
-		  <th>Block For</th>    <th>Current Allocation</th>     <th>Allocate</th>     
-	      </tr>
+	     
 	      <form id="form2" name="form2" method="post" action="/cooperative_Bank/fm/Thank" onsubmit=" ";>
 	      <tr>
 		  
@@ -113,7 +111,9 @@
 		      <th>Mutual Fund Name</th>
 		      <th>Cost</th>     
 		      <th>Quantity Available</th>  
-		      <th>Buy</th>   
+		      <th>Buy</th>  
+		      <th></th>
+		      <th>Sell</th>  
 		  </tr>
 		  <ul>
 		  {% for mf in mf_list %}
@@ -134,6 +134,9 @@
 		      <td> <input type="text"  name="abcd{{ forloop.counter }}" id="choice{{ forloop.counter }}"/>
 		      	    </td>
 		      	     <td><input type="hidden" name="abc{{ forloop.counter }}" value="{{ mf.mf_ID }}"/></td>
+		      	      <td> <input type="text"  name="pqrs{{ forloop.counter }}" id="choice{{ forloop.counter }}"/>
+		      	    </td>
+		      	     <td><input type="hidden" name="pqr{{ forloop.counter }}" value="{{ mf.mf_ID }}"/></td>
 		  </tr>
 		    {% endfor %}
 		    </ul>
@@ -143,6 +146,11 @@
 	      
 	  </table>
 	  <input type="submit" value="Submit" />
+	  </form>
+	  
+	  <form id="form3" name="form2" method="post" action="/cooperative_Bank/fm/Trans" onsubmit=" ";>
+	  	<input type="submit" value="Trans" />
+	  	
 	  </form>
 	</center>
 	

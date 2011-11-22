@@ -18,6 +18,9 @@
 		      <th>FO Name</th>
 		      <th>Cost</th>     
 		      <th>Quantity Available</th>     
+		      <th>Buy</th>  
+		      <th></th>
+		      <th>Sell</th>  
 		  </tr>
 		  <ul>
 		  {% for fo in fo_list %}
@@ -37,6 +40,8 @@
 		        <td> <input type="text"  name="abcd{{ forloop.counter }}" id="choice{{ forloop.counter }}"/>
 		      	    </td>
 		      	     <td><input type="hidden" name="abc{{ forloop.counter }}" value="{{ fo.fo_ID }}"/></td>
+		      	     <td> <input type="text"  name="pqrs{{ forloop.counter }}" id="choice{{ forloop.counter }}"/>
+		      	    </td>
 		  </tr>
 		    {% endfor %}
 		    </ul>
@@ -46,6 +51,8 @@
 	  </table>
 	  <input type="submit" value="Submit" />
 	  </form>
+	   <form id="form3" name="form2" method="post" action="/cooperative_Bank/fm/Trans" onsubmit=" ";>
+	  	<input type="submit" value="Trans" />
 	</center>
     </body>
 </html>
