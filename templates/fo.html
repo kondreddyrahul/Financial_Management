@@ -1,49 +1,75 @@
 <html>
     <head>
 	<title>Available FOs</title>
+			<link rel="stylesheet" href="/static/css/jq.css" type="text/css" media="print, projection, screen" />
+		<link rel="stylesheet" href="/static/css/style.css" type="text/css" id="" media="print, projection, screen" />
+		<script type="text/javascript" src="/static/js/jquery-latest.js"></script>
+		<script type="text/javascript" src="/static/js/jquery.tablesorter.js"></script>
+		<script type="text/javascript" src="/static/js/jquery.tablesorter.pager.js"></script>
+		<script type="text/javascript" src="/static/js/chili-1.8b.js"></script>
+		<script type="text/javascript" src="/static/js/docs.js"></script>
+		<script type="text/javascript" src="/static/js/examples.js"></script>
+		<script type="text/javascript" id="js">
+				$(document).ready(function() {
+				// call the tablesorter plugin
+				$("table").tablesorter();
+				}); 
+		</script>
     </head>
     
     <body>
-	<center>
-	Welcome Mr {{user_name}}<br/>
-	Total Balance is : Rs {{tot_bal1}}.00<br/>
-	Net Withdrawl Balance is : Rs {{nw_bal1}}.00<br/>
-	FO Balance is : Rs {{fo_bal1}}.00<br/>
-	  <h1>FOs</h1>
-	  <table border="1">
-	  	<form id="form2" name="form2" method="post" action="/cooperative_Bank/fm/Thank2" onsubmit=" ";>
-	      {% if fo_list %}
-		  <tr>
-		      <th>ID </th>
-		      <th>FO Name</th>
-		      <th>Cost</th>     
-		      <th>Quantity Available</th>     
-		      <th>Buy</th>  
-		      <th></th>
-		      <th>Sell</th>  
-		  </tr>
-		  <ul>
-		  {% for fo in fo_list %}
-		  <tr>
-		      <td>
-			<a href="/fm/fos/{{ fo.fo_ID }}/">{{ fo.fo_ID }}</a>
-		      </td>
-		      <td>
-			<a href="/fm/fos/{{ fo.fo_Name }}/">{{ fo.fo_Name }}</a>
-		      </td>
-		      <td>
-			{{ fo.fo_cost }}
-		      </td>
-		      <td>
-			{{ fo.fo_Qty }}
-		      </td>
-		        <td> <input type="text"  name="abcd{{ forloop.counter }}" id="choice{{ forloop.counter }}"/>
-		      	    </td>
-		      	     <td><input type="hidden" name="abc{{ forloop.counter }}" value="{{ fo.fo_ID }}"/></td>
-		      	     <td> <input type="text"  name="pqrs{{ forloop.counter }}" id="choice{{ forloop.counter }}"/>
-		      	    </td>
-		  </tr>
-		    {% endfor %}
+    	<div id="banner">	
+			<h1>IIT Ropar<em>Bank</em></h1>
+			<h2>Financial Management Online</h2>
+			<h3>Your Money is in Safe Hands</h3>
+		</div>
+		
+		<div id="main">
+			<h1>Welcome Mr {{user_name}}<br/></h1>
+			<p> Withdrawl Balance {{nw_bal1}}.00<br/>
+	    		Total Balance is : Rs {{tot_bal1}}.00<br/>
+				FO Balance is : Rs {{fo_bal1}}.00<br/>
+			</p>	
+		</div>
+
+ 	  <h1>FOs</h1>
+ 	  	  <div id="demo">
+			<table cellspacing="1" class="tablesorter">					     
+			  	<form id="form2" name="form2" method="post" action="/cooperative_Bank/fm/Thank2" onsubmit=" ";>
+	    		  {% if fo_list %}
+	    		 <thead>
+			  		<tr>
+			      		<th>ID </th>
+			      		<th>FO Name</th>
+					    <th>Cost</th>     
+					    <th>Quantity Available</th>     
+					    <th>Buy</th>  
+					    <th>Sell</th>  
+					</tr>
+				</thead>
+				<ul>
+		  		<tbody>
+				  {% for fo in fo_list %}
+					  <tr>
+					      <td>
+						<a href="/fm/fos/{{ fo.fo_ID }}/">{{ fo.fo_ID }}</a>
+					      </td>
+					      <td>
+						<a href="/fm/fos/{{ fo.fo_Name }}/">{{ fo.fo_Name }}</a>
+					      </td>
+					      <td>
+						{{ fo.fo_cost }}
+					      </td>
+					      <td>
+						{{ fo.fo_Qty }}
+					      </td>
+					        <td> <input type="text"  name="abcd{{ forloop.counter }}" id="choice{{ forloop.counter }}"/>
+					      	     <input type="hidden" name="abc{{ forloop.counter }}" value="{{ fo.fo_ID }}"/></td>
+					      	     <td> <input type="text"  name="pqrs{{ forloop.counter }}" id="choice{{ forloop.counter }}"/>
+					      	    </td>
+					   </tr>
+					    {% endfor %}
+		   	  	  </tbody>
 		    </ul>
 		{% else %}
 		  <p>No Mutual Funds are available.</p>

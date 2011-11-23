@@ -1,159 +1,145 @@
 <html>
     <head>
-	<title>Available Mutual Funds</title>
+		<title>Mutual Funds</title>
+		<link rel="stylesheet" href="/static/css/jq.css" type="text/css" media="print, projection, screen" />
+		<link rel="stylesheet" href="/static/css/style.css" type="text/css" id="" media="print, projection, screen" />
+		<script type="text/javascript" src="/static/js/jquery-latest.js"></script>
+		<script type="text/javascript" src="/static/js/jquery.tablesorter.js"></script>
+		<script type="text/javascript" src="/static/js/jquery.tablesorter.pager.js"></script>
+		<script type="text/javascript" src="/static/js/chili-1.8b.js"></script>
+		<script type="text/javascript" src="/static/js/docs.js"></script>
+		<script type="text/javascript" src="/static/js/examples.js"></script>
+		<script type="text/javascript" id="js">
+				$(document).ready(function() {
+				// call the tablesorter plugin
+				$("table").tablesorter();
+				}); 
+		</script>	
+		<script type="text/javascript">
+	   
+				function validate_form(){
+			    	document.write("hello");
+			    	var totalBal = +"{{tot_bal1}}"
+					var netwBal=+"{{nw_bal1}}"
+			    	var mfBal =+"{{mf_bal1}}"
+			    	var ipoBal =+"{{po_bal1}}"
+			    	var foBal = +"{{po_bal1}}"
+			    	var signMF=document.form1.signMF[0].checked
+					var signPO=document.form1.signPO[0].checked
+					var signFO=document.form1.signFO[0].checked
+					var temp_MF,temp_PO,temp_FO
+					if(signMF){
+						temp_MF=+document.form1.temp_MF.value
+					}else{
+						temp_MF=-document.form1.temp_MF.value
+					}
+					if(signPO){
+						temp_PO=+document.form1.temp_PO.value
+					}else{
+						temp_PO=-document.form1.temp_PO.value
+					}
+					if(signFO){
+						temp_FO=+document.form1.temp_FO.value
+					}else{
+						temp_FO=-document.form1.temp_FO.value
+					}
+					if(mfBal + temp_MF < 0){
+						alert("Incorrect change in MF")
+						return false;
+					}
+					if(mfBal + temp_MF < 0){
+						alert("Incorrect change in MF")
+						return false;
+					}
+					if(mfBal + temp_MF < 0){
+						alert("Incorrect change in MF")
+						return false;
+					}
+			    }
+			    
+			    function validate_form1(){
+			    	var c=123131231
+			    	var d= "oicech1"
+			    	var temp_MF
+			  		temp_MF=document.form2.abc1.value
+					var t="abcd" + "1"
+			 		var e="{{mf_list.count}}"
+					document.write(temp_MF)
+					var i=1
+					document.write(t)
+					return false
+			    }
+		</script>
     </head>
     
     <body>
-    	
-    	<script type="text/javascript">
-	   
-		 function validate_form(){
-	    	document.write("hello");
-	    	var totalBal = +"{{tot_bal1}}"
-			var netwBal=+"{{nw_bal1}}"
-	    	var mfBal =+"{{mf_bal1}}"
-	    	var ipoBal =+"{{po_bal1}}"
-	    	var foBal = +"{{po_bal1}}"
-	    	var signMF=document.form1.signMF[0].checked
-			var signPO=document.form1.signPO[0].checked
-			var signFO=document.form1.signFO[0].checked
-			var temp_MF,temp_PO,temp_FO
-			if(signMF){
-				temp_MF=+document.form1.temp_MF.value
-			}else{
-				temp_MF=-document.form1.temp_MF.value
-			}
-			if(signPO){
-				temp_PO=+document.form1.temp_PO.value
-			}else{
-				temp_PO=-document.form1.temp_PO.value
-			}
-			if(signFO){
-				temp_FO=+document.form1.temp_FO.value
-			}else{
-				temp_FO=-document.form1.temp_FO.value
-			}
-			if(mfBal + temp_MF < 0){
-				alert("Incorrect change in MF")
-				return false;
-			}
-			if(mfBal + temp_MF < 0){
-				alert("Incorrect change in MF")
-				return false;
-			}
-			if(mfBal + temp_MF < 0){
-				alert("Incorrect change in MF")
-				return false;
-			}
-			
-			
-			
-	    }
-	    function validate_form1()
-	    {
-	    	var c=123131231
-	    	var d= "oicech1"
-	    	var temp_MF
-	  temp_MF=document.form2.abc1.value
-	//  temp_MF=document.form2.abcd1.key
-	  var t="abcd" + "1"
-	 //  temp_MF=document.forms["form2"][t].value
-			var e="{{mf_list.count}}"
-		///	{{tot_bal1}}=3
-		//	st = {{ st }};
-		// x = simplejson.dumps("{{mf_list}}")
-		//data_string = json.dumps(mf_list)
-			document.write(temp_MF)
-			var i=1
-		//	for (i=1;i<=e;i++ )
-			//{
-		//		i=i+1
-		//		document.write(t+ "  ")
-		//		document.write(i)
-			//t="abcd" + i
-			//document.write(t+ "  ")
-	//var signMF=document.forms["form2"][t].value
-	//if(signMF=="")
-	//{
-				//temp_MF=document.forms["form2"][t].value
-			//	document.write("hello")
-	//}
-//	else
-//	{
-//		var k=sign-0
-//	}
-		//	}
-//			document.write(temp_MF)
-		//	temp_MF=document.form2.t.value
-			document.write(t)
-			return false
-	    }
-	</script>
+		 <div id="banner">	
+			<h1>IIT Ropar<em>Bank</em></h1>
+			<h2>Financial Management Online</h2>
+			<h3>Your Money is in Safe Hands</h3>
+		</div>
+		<div id="main">
+			<h1>Welcome Mr {{user_name}}<br/></h1>
+			<p> Withdrawl Balance {{nw_bal1}}.00<br/>
+	    		Total Balance is : Rs {{tot_bal1}}.00<br/>
+	    		Total  MF Balance is : Rs {{mf_bal1}}.00<br/>
+			</p>	
+		</div>
+		
+			<h1>Mutual Fund Details</h1>
 	
-	
-	
-	
-	
-	
-    	<center>
-	  Welcome Mr {{user_name}}<br/>
-	  Net Withdrawl Balance {{nw_bal1}}<br/>
-	  Total Balance is : Rs {{tot_bal1}}.00<br/>
-	  Total  MF Balance is : Rs {{mf_bal1}}.00<br/>
-	  <table border="1">
-	     
-	      <form id="form2" name="form2" method="post" action="/cooperative_Bank/fm/Thank" onsubmit=" ";>
-	      <tr>
-		  
-		{% if mf_list %}
-		  <tr>
-		      <th>ID </th>
-		      <th>Mutual Fund Name</th>
-		      <th>Cost</th>     
-		      <th>Quantity Available</th>  
-		      <th>Buy</th>  
-		      <th></th>
-		      <th>Sell</th>  
-		  </tr>
-		  <ul>
-		  {% for mf in mf_list %}
-		  <tr>
-		      <td>
-			<a href="/fm/mfs/{{ mf.mf_ID }}/">{{ mf.mf_ID }}</a>
-		      </td>
-		      <td>
-			<a href="/fm/mfs/{{ mf.mf_ID }}/">{{ mf.mf_Name }}</a>
-		      </td>
-		      <td>
-			{{ mf.mf_cost }}
-		      </td>
-		      <td>
-			{{ mf.mf_Qty }}
-		      </td>
-		     
-		      <td> <input type="text"  name="abcd{{ forloop.counter }}" id="choice{{ forloop.counter }}"/>
-		      	    </td>
-		      	     <td><input type="hidden" name="abc{{ forloop.counter }}" value="{{ mf.mf_ID }}"/></td>
-		      	      <td> <input type="text"  name="pqrs{{ forloop.counter }}" id="choice{{ forloop.counter }}"/>
-		      	    </td>
-		      	     <td><input type="hidden" name="pqr{{ forloop.counter }}" value="{{ mf.mf_ID }}"/></td>
-		  </tr>
-		    {% endfor %}
-		    </ul>
-		{% else %}
-		  <p>No Mutual Funds are available.</p>
-		{% endif %}
-	      
-	  </table>
-	  <input type="submit" value="Submit" />
-	  </form>
-	  
-	  <form id="form3" name="form2" method="post" action="/cooperative_Bank/fm/Trans" onsubmit=" ";>
-	  	<input type="submit" value="Trans" />
-	  	
-	  </form>
-	</center>
-	
-	
+		<div id="demo">
+			<table cellspacing="1" class="tablesorter">					     
+				<form id="form2" name="form2" method="post" action="/cooperative_Bank/fm/Thank" onsubmit=" ";>
+				<tr>
+				 {% if mf_list %}
+				 <thead>
+					<tr>
+						 <th>ID </th>
+					      <th>Mutual Fund Name</th>
+					      <th>Cost</th>     
+					      <th>Quantity Available</th>  
+					      <th>Buy</th>  
+					      <th>Sell</th>
+					</tr>
+				 </thead>
+				 <ul>		
+				 <tbody>				  
+					 {% for mf in mf_list %}
+						  <tr>
+						      <td>
+							<a href="/fm/mfs/{{ mf.mf_ID }}/">{{ mf.mf_ID }}</a>
+						      </td>
+						      <td>
+							<a href="/fm/mfs/{{ mf.mf_ID }}/">{{ mf.mf_Name }}</a>
+						      </td>
+						      <td>
+							{{ mf.mf_cost }}
+						      </td>
+						      <td>
+							{{ mf.mf_Qty }}
+						      </td>
+						     
+						      <td> <input type="text"  name="abcd{{ forloop.counter }}" id="choice{{ forloop.counter }}"/>
+						      	   <input type="hidden" name="abc{{ forloop.counter }}" value="{{ mf.mf_ID }}"/></td>
+						       <td> <input type="text"  name="pqrs{{ forloop.counter }}" id="choice{{ forloop.counter }}"/>
+						      	   <input type="hidden" name="pqr{{ forloop.counter }}" value="{{ mf.mf_ID }}"/></td>
+						  </tr>
+						    {% endfor %}
+						    </ul>
+						{% else %}
+						  <p>No Mutual Funds are available.</p>
+						{% endif %}
+					   </tbody>
+				</table>
+				<center>
+					  <input type="submit" value="Submit" />
+					  </form>
+					  
+					  <form id="form3" name="form2" method="post" action="/cooperative_Bank/fm/Trans" onsubmit=" ";>
+					  	<input type="submit" value="Trans" />
+					  	</center>
+					  </form>	 				
+	</div>	
     </body>
 </html>
