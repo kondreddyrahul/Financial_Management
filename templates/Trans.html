@@ -1,53 +1,105 @@
 <html>
     <head>
-	<title>Available IPOs</title>
+	   <style type="text/css">
+			input.groovybutton{
+		   	font-size:12px;
+		   	width:130px;
+		   	height:20px;
+		   	background-color:#66AAFF;
+		}
+		</style>
+		<title>Transaction</title>
+		<link rel="stylesheet" href="/static/css/jq.css" type="text/css" media="print, projection, screen" />
+		<link rel="stylesheet" href="/static/css/style.css" type="text/css" id="" media="print, projection, screen" />
+		<script type="text/javascript" src="/static/js/jquery-latest.js"></script>
+		<script type="text/javascript" src="/static/js/jquery.tablesorter.js"></script>
+		<script type="text/javascript" src="/static/js/jquery.tablesorter.pager.js"></script>
+		<script type="text/javascript" src="/static/js/chili-1.8b.js"></script>
+		<script type="text/javascript" src="/static/js/docs.js"></script>
+		<script type="text/javascript" src="/static/js/examples.js"></script>
+		<script type="text/javascript" id="js">
+				$(document).ready(function() {
+				// call the tablesorter plugin
+				$("table").tablesorter();
+				}); 
+		</script>
     </head>
     
     <body>
-	<center>
-	Welcome Mr {{user_name}}<br/>
-	Total Balance is : Rs {{tot_bal1}}.00<br/>
-	Net Withdrawl Balance is : Rs {{nw_bal1}}.00<br/>
-	<br/>
+    	<div id="banner">	
+			<h1>IIT Ropar<em>Bank</em></h1>
+			<h2>Financial Management Online</h2>
+			<h3>Your Money is in Safe Hands</h3>
+		</div>
 
+		<div id="main">
+			<h1>Welcome Mr {{user_name}}<br/></h1>
+			<p> Withdrawl Balance {{nw_bal1}}.00<br/>
+	    		Total Balance is : Rs {{tot_bal1}}.00<br/>
+			</p>	
+		</div>
+<center>		
+		<table>
+			<tr>
+				<td>
+			  		<form id="form2" name="form2" method="post" action="/cooperative_Bank/fm/MF" onsubmit=" ";>
+		    		 <input type="submit" class="groovybutton" value="MF" />
+		    		</form>
+    			</td>
+    			<td>
+		    		<form id="form3" name="form3" method="post" action="/cooperative_Bank/fm/FO" onsubmit=" ";>
+		    		 <input type="submit" class="groovybutton" value="FO" />
+		    		</form>
+    			</td>
+    			<td>
+    				<form id="form4" name="form4" method="post" action="/cooperative_Bank/fm/IPO" onsubmit=" ";>
+    		 		<input type="submit" class="groovybutton" value="IPO" />
+    				</form>
+    			</td>
+    		</tr>
+    	</table>
+</center>    	
 	  <h1>Transaction History</h1>
-	  <table border="1">
-	  	 <form id="form2" name="form2" method="post" action="/cooperative_Bank/fm/user" onsubmit=" ";>
-	      {% if p %}
-		  <tr>
-		      <th>ID </th>
-		      <th>IPO Name</th>
-		      <th>Total</th>     
-		      <th>BUY/SOLD</th>     
-		  </tr>
-		  <ul>
-		  {% for p1 in p %}
-		  <tr>
-		      <td>
-			<a href="/fm/ipos/{{ ipo.ipo_ID }}/">{{ p1.transaction_id }}</a>
-		      </td>
-		      <td>
-			<a href="/fm/ipos/{{ ipo.ipo_ID }}/">{{ p1.transaction_trans }}</a>
-		      </td>
-		      <td>
-			{{ p1.transaction_total }}
-		      </td>
-		      <td>
-			{{ p1.transaction_Quantity }}
-		      </td>
-		     
-		  </tr>
-		    {% endfor %}
-		    </ul>
+	  <div id="demo">
+			<table cellspacing="1" class="tablesorter">					     
+     	  	 <form id="form2" name="form2" method="post" action="/cooperative_Bank/fm/user" onsubmit=" ";>
+	 	     {% if p %}
+	 	     <thead>
+				  <tr>
+				      <th>ID </th>
+				      <th>IPO Name</th>
+				      <th>Total</th>     
+				      <th>BUY/SOLD</th>     
+				  </tr>
+			</thead>
+			<tbody>
+				  <ul>
+				  {% for p1 in p %}
+				  <tr>
+				      <td>
+					<a href="/fm/ipos/{{ ipo.ipo_ID }}/">{{ p1.transaction_id }}</a>
+				      </td>
+				      <td>
+					<a href="/fm/ipos/{{ ipo.ipo_ID }}/">{{ p1.transaction_trans }}</a>
+				      </td>
+				      <td>
+					{{ p1.transaction_total }}
+				      </td>
+				      <td>
+					{{ p1.transaction_Quantity }}
+				      </td>
+				     
+				  </tr>
+				    {% endfor %}
+				    </ul>
+		    </tbody>
 		{% else %}
 		  <p>No No IPOs are available.</p>
 		{% endif %}
 	 
 	  </table>
 	  <input type="hidden" name="user_id" value="{{ic}}"/>
-	 
-	 <input type="submit" value="MAIN PAGE" />
-	  </form>
+	</form>
 	</center>
     </body>
 </html>

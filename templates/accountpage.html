@@ -2,6 +2,15 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us">
 <head>
+	<style type="text/css">
+	input.groovybutton{
+   	font-size:12px;
+   	width:130px;
+   	height:20px;
+   	background-color:#66AAFF;
+	}
+	</style>
+
 	<title>Account Details</title>
 	<link rel="stylesheet" href="/static/css/jq.css" type="text/css" media="print, projection, screen" />
 	<link rel="stylesheet" href="/static/css/style.css" type="text/css" id="" media="print, projection, screen" />
@@ -101,7 +110,11 @@
 	<p> Withdrawl Balance {{nw_bal1}}<br/>
 	    Total Balance is : Rs {{tot_bal1}}.00<br/>
 	</p>
-	
+		<center>
+		<form id="form8" name="form8" method="post" action="/cooperative_Bank/fm/Trans" onsubmit=" ";>
+    		 <input type="submit" class="groovybutton" value="Transactions" />
+    	</form>
+    	</center>
 	<h1>Account Details</h1>
 	
 	<div id="demo">
@@ -146,7 +159,9 @@
 					</tr>
 				</tbody>
 		</table>
-		<input type="submit" value="Submit" />
+		<center>
+		<input type="submit"class="groovybutton" value="Submit" />
+		</center>
 		</form>
 	</div>	
 </div>

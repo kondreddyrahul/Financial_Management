@@ -18,12 +18,14 @@ from django.test import TestCase
 
 
 class SimpleTest(TestCase):
+## 
     def test_basic_addition(self):
         """
         Tests that 1 + 1 always equals 2.
         """
         self.assertEqual(1 + 1, 2)
-    def test_redirect_after_login(self):
+##To check if an invalid id is put then we are not able to do login and on valid we are able to go into acct. page 
+   def test_redirect_after_login(self):
         c = Client()
         user = Customer('test1',1010)
         acc = account('1010','13213','3213','321','5435')
@@ -34,6 +36,7 @@ class SimpleTest(TestCase):
         self.assertEqual(1 + 1, 2)
         self.assertEqual(response.status_code,200)
       #  self.assertRedirects(response,'/cooperative_Bank/fm/user')
+## To check if we are able to go from selected Mutual fund to correct page
     def test_mf_after_login(self):
         c = Client()
         user = Customer('test1',1010)
@@ -47,7 +50,7 @@ class SimpleTest(TestCase):
         self.assertEqual(1 + 1, 2)
         response.content
        # self.assertEqual(response.status_code,302)
-
+## Unit test cases for Mutual Funds.
 class MutualFundTestCase(unittest.TestCase):
     def test_mf1_after_login(self):
         self.mf=MutualFund('2','mf',12,12321)

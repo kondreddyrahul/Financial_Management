@@ -1,39 +1,57 @@
 <script type="text/javascript">
-	   
-		
-	    function validate_form1()
-	    {
-	    	
-	  	alert("Insufficient Fund")
-			
-	  	
-	  	
-	 
-			return false;
+	    function validate_form1(){
+	    		alert("Insufficient Fund")
+				return false;
 	    }
-	</script>
+</script>
 	
 	
 <html>
     <head>
-	<title>Available Mutual Funds</title>
+  		   <style type="text/css">
+			input.groovybutton{
+		   	font-size:12px;
+		   	width:130px;
+		   	height:20px;
+		   	background-color:#66AAFF;
+		}
+		</style>
+		<link rel="stylesheet" href="/static/css/jq.css" type="text/css" media="print, projection, screen" />
+		<link rel="stylesheet" href="/static/css/style.css" type="text/css" id="" media="print, projection, screen" />
+
+	<title>TY</title>
     </head>
     
     <body>
+ 		 <div id="banner">	
+			<h1>IIT Ropar<em>Bank</em></h1>
+			<h2>Financial Management Online</h2>
+			<h3>Your Money is in Safe Hands</h3>
+		</div>
+   	
+
     	{% if counter == 1 %}
-    	
-    	
-    	<center>
-    	<form id="form2" name="form2" method="post" action="/cooperative_Bank/fm/MF" onsubmit=" ";>
-    		 <input type="submit" value="MutualFund" />
-    		</form>
-    		<form id="form3" name="form3" method="post" action="/cooperative_Bank/fm/FO" onsubmit=" ";>
-    		 <input type="submit" value="FO" />
-    		</form>
-    		<form id="form4" name="form4" method="post" action="/cooperative_Bank/fm/IPO" onsubmit=" ";>
-    		 <input type="submit" value="IPO" />
-    		</form>
-    </center>
+  <center>  	
+		<table>
+			<tr>
+				<td>
+			  		<form id="form2" name="form2" method="post" action="/cooperative_Bank/fm/MF" onsubmit=" ";>
+		    		 <input type="submit" class="groovybutton" value="MF" />
+		    		</form>
+    			</td>
+    			<td>
+		    		<form id="form3" name="form3" method="post" action="/cooperative_Bank/fm/FO" onsubmit=" ";>
+		    		 <input type="submit" class="groovybutton" value="FO" />
+		    		</form>
+    			</td>
+    			<td>
+    				<form id="form4" name="form4" method="post" action="/cooperative_Bank/fm/IPO" onsubmit=" ";>
+    		 		<input type="submit" class="groovybutton" value="IPO" />
+    				</form>
+    			</td>
+    		</tr>
+    	</table>
+</center>    	
     {% else %}
 	  <script type="text/javascript">
 	 validate_form1()
@@ -41,15 +59,25 @@
 	 
 	</script>
 	<center>
-	   <form id="form2" name="form2" method="post" action="/cooperative_Bank/fm/MF" onsubmit=" ";>
-    		 <input type="submit" value="MutualFund" />
-    		</form>
-    		<form id="form3" name="form3" method="post" action="/cooperative_Bank/fm/FO" onsubmit=" ";>
-    		 <input type="submit" value="FO" />
-    		</form>
-    		<form id="form4" name="form4" method="post" action="/cooperative_Bank/fm/IPO" onsubmit=" ";>
-    		 <input type="submit" value="IPO" />
-    		</form>
-    		<center>
+		<table>
+			<tr>
+				<td>
+			  		<form id="form2" name="form2" method="post" action="/cooperative_Bank/fm/MF" onsubmit=" ";>
+		    		 <input type="submit" class="groovybutton" value="MF" />
+		    		</form>
+    			</td>
+    			<td>
+		    		<form id="form3" name="form3" method="post" action="/cooperative_Bank/fm/FO" onsubmit=" ";>
+		    		 <input type="submit" class="groovybutton" value="FO" />
+		    		</form>
+    			</td>
+    			<td>
+    				<form id="form4" name="form4" method="post" action="/cooperative_Bank/fm/IPO" onsubmit=" ";>
+    		 		<input type="submit" class="groovybutton" value="IPO" />
+    				</form>
+    			</td>
+    		</tr>
+    	</table>
+    	</center>
     {% endif %}
     </body></html>
